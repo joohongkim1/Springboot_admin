@@ -27,6 +27,8 @@ public class OrderDetail {
 
     private BigDecimal totalPrice;
 
+    private LocalDateTime orderAt;
+
     private LocalDateTime createdAt;
 
     private String createdBy;
