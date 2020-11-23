@@ -23,6 +23,8 @@ public class Item {
 
     private String content;
 
+    // LAZY = 지연 로딩, EAGER = 즉시 로딩
+    // EAGER => 연관된 모든 테이블을 조인 걸어서 가져오겠다.
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
     private List<OrderDetail> orderDetailList;
 }
