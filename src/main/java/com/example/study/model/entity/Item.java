@@ -42,6 +42,7 @@ public class Item {
 
     private String updatedBy;
 
+    private Long partnerId;
 
     // LAZY = 지연 로딩, EAGER = 즉시 로딩
     // EAGER => 연관된 모든 테이블을 조인 걸어서 가져오겠다.
