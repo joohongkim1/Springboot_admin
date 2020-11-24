@@ -43,9 +43,23 @@ public class UserRepositoryTest extends StudyApplicationTests {
     }
 
     @Test
+    @Transactional
     public void read() {
         User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1234-1234");
 
+        user.getOrderGroupList().forEach(orderGroup -> {
+            System.out.println("-------------주문 묶음-------------");
+            System.out.println("수령인 : " + orderGroup.getRevName());
+            System.out.println("수령지 : " + orderGroup.getRevAddress());
+            System.out.println("총금액 : " + orderGroup.getTotalPrice());
+            System.out.println("총수령 : " + orderGroup.getTotalQuantity());
+
+            System.out.println("-------------주문 상세-------------");
+            orderGroup.getOrderDetailList().forEach(orderDetail -> {
+                System.out.println(orderDetail.getStatus());
+             });
+
+        });
         Assert.assertNotNull(user);
 
     }

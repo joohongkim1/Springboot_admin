@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString(exclude = {"orderGroup"})
 public class OrderDetail {
 
     @Id
@@ -37,12 +38,9 @@ public class OrderDetail {
 
     private Long itemId;
 
-    private Long orderGroupId;
+    // 연결하고자 하는 곳 mappedBy 변수명과 일치해야한다.
+    @ManyToOne
+    private OrderGroup orderGroup;
 
-    // OrderDetail 입장에서는 User 테이블과 N:1 관계
-//    @ManyToOne
-//    private User user;
-//
-//    @ManyToOne
-//    private Item item;
+
 }
